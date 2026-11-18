@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Time</title>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#111;color:#eee;
+       font:700 clamp(3rem,18vw,10rem)/1 ui-monospace,monospace;
+       font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<time id="t"></time>
+<script>
+  const t = document.getElementById("t");
+  const tick = () => {
+    const s = new Date().toLocaleTimeString([], {hour12:false});
+    t.textContent = s;
+    document.title = s;
+  };
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
